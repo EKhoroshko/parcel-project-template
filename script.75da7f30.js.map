@@ -1,0 +1,1 @@
+{"version":3,"sources":["script.js"],"names":["$","slick"],"mappings":"AAAAA,CAAC,CAAC,eAAD,CAAD,CAAmBC,KAAnB","file":"script.75da7f30.js","sourceRoot":"..\\src","sourcesContent":["$('.slaider-item').slick();\r\n"]}

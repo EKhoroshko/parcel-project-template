@@ -1,0 +1,1 @@
+{"version":3,"sources":["script.js"],"names":["$","slick"],"mappings":";AAAAA,EAAE,iBAAiBC","file":"script.9925fdc7.js","sourceRoot":"..\\src","sourcesContent":["$('.slaider-item').slick();\r\n"]}
