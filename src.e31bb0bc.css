@@ -1026,6 +1026,22 @@ body {
     font-size: 58px;
     line-height: 1.15;
   }
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .products-list-title {
+    font-family: Titan One;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 30px;
+  }
 }
 .products-list {
   display: flex;
@@ -1679,6 +1695,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+.masonry img:hover {
+  transform: scale(1.35);
+  padding: 5px;
+  box-sizing: inherit;
+  object-fit: cover;
+  background: #ffa5ba;
 }
 .masonry figure {
   margin: 0;
@@ -2896,8 +2919,7 @@ body {
 }
 
 .about-video {
-  width: 250px;
-  height: 173px;
+  height: 200px;
   text-align: center;
   border: 10px solid #ec8195;
 }
@@ -2910,6 +2932,253 @@ body {
   .about-video {
     width: 430px;
     height: 373px;
+  }
+}
+.franchisa-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.franchisa-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  max-width: 250px;
+  height: 85%;
+  max-height: 609px;
+  overflow-y: scroll;
+  background-color: #e17992;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px;
+  z-index: 30;
+}
+
+.franchisa-modal::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 4px;
+  background-color: #d41443;
+}
+
+.franchisa-modal::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+.franchisa-modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.franchisa-modal-close-btn:hover, .franchisa-modal-close-btn:focus {
+  background: #C7133E;
+}
+
+.franchisa-modal-icon {
+  width: 11px;
+  height: 11px;
+  fill: #d41443;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-btn:focus .franchisa-modal-icon, .modal-close-btn:hover .franchisa-modal-icon {
+  fill: #FFFFFF;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.franchisa-modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.franchisa-modal-form-title {
+  display: block;
+  width: 100%;
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.285;
+  color: #d41443;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.big {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.franchisa-modal-form-list {
+  margin-bottom: 25px;
+}
+
+.franchisa-modal-form-item {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.166;
+  letter-spacing: 0.01em;
+  color: #d41443;
+  list-style: circle;
+}
+
+.franchisa-modal-form-item:nth-child(-n+4) {
+  margin-bottom: 10px;
+}
+
+.franchisa-modal-form-input-label {
+  margin-bottom: 10px;
+}
+
+.franchisa-modal-form-input-name {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+  color: #d41443;
+}
+
+.franchisa-modal-form-input-wrapper {
+  display: block;
+  position: relative;
+}
+
+.franchisa-modal-form-input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.143;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  color: #d41443;
+  border-radius: 4px;
+  padding-left: 42px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.franchisa-modal-form-input:focus, .franchisa-modal-form-input:hover {
+  outline: none;
+  border-color: #d41443;
+}
+
+.franchisa-modal-form-icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background: #FFFFFF;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.franchisa-modal-form-input:focus + .franchisa-modal-form-icon, .franchisa-modal-form-input:hover + .franchisa-modal-form-icon {
+  fill: #d41443;
+}
+
+.franchisa-modal-form-message {
+  display: block;
+  width: 100%;
+  height: 120px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.143;
+  letter-spacing: 0.01em;
+  color: #ffa5ba;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: none;
+  padding: 12px 16px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.franchisa-modal-form-message:focus, .franchisa-modal-form-message:hover {
+  outline: none;
+  border-color: #d41443;
+}
+.franchisa-modal-form-message::placeholder {
+  color: #d41443;
+}
+
+.franchisa-modal-form-button {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  align-items: center;
+  text-align: center;
+  color: #d41443;
+  width: 209px;
+  height: 44px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.franchisa-modal-form-button:hover, .franchisa-modal-form-button:focus {
+  background-color: #d41342;
+  color: #FFFFFF;
+}
+
+@media screen and (min-width: 480px) {
+  .franchisa-modal {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .franchisa-modal {
+    max-width: 450px;
+  }
+
+  .franchisa-modal-form-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .franchisa-modal-form-input-name {
+    font-size: 14px;
+    line-height: 1.167;
+  }
+
+  .franchisa-modal-form-item {
+    font-size: 14px;
+    line-height: 1.166;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .franchisa-modal {
+    max-width: 528px;
+    max-height: 581px;
   }
 }
 .locate-backdrop {

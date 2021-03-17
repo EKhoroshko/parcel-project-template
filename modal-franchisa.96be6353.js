@@ -117,12 +117,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"modal-buy-now.js":[function(require,module,exports) {
+})({"modal-franchisa.js":[function(require,module,exports) {
 (function () {
   var refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]')
+    openModalBtn: document.querySelector('[franchisa-modal-open]'),
+    closeModalBtn: document.querySelector('[franchisa-modal-close]'),
+    modal: document.querySelector('[franchisa-modal]')
   };
   refs.openModalBtn.addEventListener('click', toggleModal);
   refs.closeModalBtn.addEventListener('click', toggleModal);
@@ -335,5 +335,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","modal-buy-now.js"], null)
-//# sourceMappingURL=/modal-buy-now.09da9183.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","modal-franchisa.js"], null)
+//# sourceMappingURL=/modal-franchisa.96be6353.js.map
