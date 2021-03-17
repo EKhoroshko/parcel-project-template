@@ -117,83 +117,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
+})({"location.js":[function(require,module,exports) {
+(function () {
+  var refs = {
+    openModalBtn: document.querySelector('[local-modal-open]'),
+    closeModalBtn: document.querySelector('[local-modal-close]'),
+    modal: document.querySelector('[local-modal]')
   };
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+  function toggleModal() {
+    refs.modal.classList.toggle('is-hidden');
   }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\images\\tab-products3.png":[["tab-products3.a2092f52.png","images/tab-products3.png"],"images/tab-products3.png"],"./..\\images\\tab-products2.png":[["tab-products2.d58ff99f.png","images/tab-products2.png"],"images/tab-products2.png"],"./..\\images\\tab-products1.png":[["tab-products1.e301f81b.png","images/tab-products1.png"],"images/tab-products1.png"],"./..\\images\\mob-about-fon.png":[["mob-about-fon.eb2e12fc.png","images/mob-about-fon.png"],"images/mob-about-fon.png"],"./..\\images\\mob-about-fon@2x.png":[["mob-about-fon@2x.1ca5b729.png","images/mob-about-fon@2x.png"],"images/mob-about-fon@2x.png"],"./..\\images\\desk-about-fon.png":[["desk-about-fon.21298b07.png","images/desk-about-fon.png"],"images/desk-about-fon.png"],"./..\\images\\desk-about-fon@2x.png":[["desk-about-fon@2x.27ff03b6.png","images/desk-about-fon@2x.png"],"images/desk-about-fon@2x.png"],"./..\\images\\icon1.png":[["icon1.0faf6aa1.png","images/icon1.png"],"images/icon1.png"],"./..\\images\\icon2.png":[["icon2.1aa2545b.png","images/icon2.png"],"images/icon2.png"],"./..\\images\\icon3.png":[["icon3.e39c9ded.png","images/icon3.png"],"images/icon3.png"],"./..\\images\\quotes.png":[["quotes.13d917a9.png","images/quotes.png"],"images/quotes.png"],"./..\\images\\Vector.png":[["Vector.d3de0691.png","images/Vector.png"],"images/Vector.png"],"./..\\images\\dots.png":[["dots.ad258eed.png","images/dots.png"],"images/dots.png"],"./..\\images\\desk-contactst-fon.png":[["desk-contactst-fon.bcc1a200.png","images/desk-contactst-fon.png"],"images/desk-contactst-fon.png"],"./..\\images\\desk-contactst-fon@2x.png":[["desk-contactst-fon@2x.477706b0.png","images/desk-contactst-fon@2x.png"],"images/desk-contactst-fon@2x.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./sass/main.scss");
-},{"./sass/main.scss":"sass/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})();
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -397,5 +335,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","location.js"], null)
+//# sourceMappingURL=/location.b349dc7c.js.map
